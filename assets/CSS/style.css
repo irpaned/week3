@@ -1,0 +1,281 @@
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    height: 5000px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;
+    background-color: rgb(222, 220, 230);
+    height: 70px;
+    
+}
+
+.nav-left ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    padding: 0;
+    
+}
+
+.nav-left ul li {
+    margin: 0 15px;
+
+    
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    margin-right: -15px !important;
+    
+}
+
+.nav-right ul {
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+}
+
+.nav-right a {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+    
+}
+
+.nav-right button {
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 3px 15px;
+    
+}
+
+.nav-right ul {
+    padding: 0;
+}
+
+.nav-right .secondButton {
+    background-color: rgb(222, 220, 230);
+    padding: 0 0 0 90px;
+}
+
+.nav-right i {
+    font-size: 20px;
+}
+
+.hamburgerButton {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    /* border: 2px solid black; */
+    background-color: rgb(192, 192, 192);
+}
+
+.hamburgerButton a {
+    margin: 5px auto;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    /* border: 2px solid black; */
+}
+
+.hamburgerButton button {
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.nav-active {
+    background-color: orangered;
+    color: white !important;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 540px) {
+    .containerListProject {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        
+    }
+
+    .project {
+        margin: 10px auto;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    form {
+        width: 90%;
+    }
+
+    .startdate, .enddate {
+        width: 45%;
+    }
+
+    .firstButton {
+        display: none;
+    }
+
+    .home, .myProject {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 570px) {
+    .secondButton {
+        display: none;
+    }
+
+    .hamburgerButton {
+        display: none;
+    }
+}
+
+
+/* MAIN */
+
+.container {
+    margin-top: 20px;
+    /* border: 2px solid black; */
+    /* width: 100%; */
+}
+
+.judul {
+    /* border: 2px solid rgb(118, 58, 58); */
+    text-align: center  ;
+}
+
+
+.containerRating  {
+    /* border: 2px solid black; */
+    width: 600px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.containerRating button  {
+    width: 80px;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    padding: 3px;
+    border: 2px solid black;
+}
+
+.containerRating a {
+
+    color: white;
+    text-decoration: none;
+
+}
+    
+
+
+
+
+
+
+.myTestimonials {
+    /* border: 2px solid rgb(18, 255, 58); */
+   
+    width: 100%;
+    /* margin: auto; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.card {
+    width: 300px;
+    height: 320px;
+    margin: 10px 10px;
+    /* border: 2px solid rgb(128, 0, 255); */
+    padding: 15px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: 200px;
+    
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.quotes {
+    /* border: 2px solid orangered; */
+    margin-top: 15px;
+    width: 100%;
+    height: 50px;
+
+}
+
+.quotes p {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* border: 2px solid rgb(83, 204, 255); */
+    font-style: italic;
+}
+
+.author {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.author h4 {
+    margin: 0;
+    /* border: 2px solid rgb(0, 255, 136); */
+}
+
+.rating {
+    /* border: 2px solid rgb(0, 255, 136); */
+    display: flex;
+    justify-content: end;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width: 1050px) {
+    .myTestimonials {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+
