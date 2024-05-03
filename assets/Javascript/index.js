@@ -23,11 +23,23 @@ app.use(express.urlencoded({extended : false}))
 // untuk mengembalikan data(res) biasa menggunakan send atau json 
 // properties app = get, post, put, delete, patch
 app.get("/home", home)
+
 app.get("/addProject", addProject)
 app.post("/addProject", addTheProject)
+
+app.post("/delete-project/:id", deleteProject)
+
+app.post("/edit-Project", editProject)
+app.get("/editProject/:id", editProjectView)
+
 app.get("/contactMe", contactMe)
+
 app.get("/myProject", myProject)
 app.post("/myProject", myListProject)
+
+app.post("/detail-Project", addDetailProject)
+app.get("/detailProject/:id", detailProjectView)
+
 
 
 const data = [];
@@ -41,13 +53,69 @@ function addProject (req, res) {
     res.render("addProject" ,{data : data})  
 }
 
+function addDetailProject (req, res) {
+
+    const { title, content, endDate, startDate, id } = req.body;
+
+    data [id] = {
+        title, content, endDate, startDate, image
+    }
+
+    res.redirect("myProject")
+
+}
+
+
 function addTheProject (req, res) {
     const {image ,title, content, startDate, endDate} = req.body
-    data.push({
+    data.unshift({
         image ,title, content, startDate, endDate
     });
     res.redirect("myProject")
-    console.log(data);
+    
+}
+
+
+
+function deleteProject (req, res) {
+    const { id } = req.params;
+    data.splice (id, 1);
+    console.log("data yg di delete", id);
+
+    res.redirect("/myProject")
+}
+
+function editProject (req, res) {
+    const { title, content, endDate, startDate, id } = req.body;
+
+    data [id] = {
+        title, content, endDate, startDate
+    }
+
+    res.redirect("myProject")
+}
+
+function editProjectView (req, res) {
+
+    const { id } = req.params;
+    const selectedData = data[id];
+    selectedData.id = id
+
+    res.render("editProject", {data : selectedData});
+}
+
+
+
+function detailProjectView (req, res) {
+
+    const { id } = req.params;
+    const selectedDetailData = data[id];
+    selectedDetailData.id = id
+
+    console.log(selectedDetailData);
+
+    res.render("detailProject", {data : selectedDetailData});
+    
 }
 
 function contactMe (req, res) {
@@ -65,7 +133,8 @@ function myListProject (req, res) {
         image ,title, content, startDate, endDate
     });
     
-    // addTheProject()
+    deleteProject()
+    
     
 }
 
@@ -73,3 +142,6 @@ function myListProject (req, res) {
 app.listen(port, () => {
     console.log("Server is running on PORT :", port);
 })
+
+
+// kalau mau coba post foto bisa pakai multer-npm
