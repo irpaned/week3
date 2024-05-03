@@ -53,27 +53,11 @@ function home (req, res) {
     res.render("home")  
 }
 
-async function addProject (req, res) {
-    // const query = "SELECT * FROM blogs"
-    // const data = await sequalize.query(query, {type: QueryTypes.SELECT});
+// ------ ADD PROJECT
 
-
-    res.render("addProject" ,{data})  
+function addProject (req, res) {
+  res.render("addProject" ,{data})  
 }
-
-function addDetailProject (req, res) {
-
-    const { title, content, endDate, startDate, id } = req.body;
-
-    data [id] = {
-        title, content, endDate, startDate, image
-    }
-
-    res.redirect("myProject")
-
-    
-}
-
 
 function addTheProject (req, res) {
     const {image ,title, content, startDate, endDate} = req.body
@@ -85,6 +69,27 @@ function addTheProject (req, res) {
 }
 
 
+// -------- DETAIL PROJECT ------------
+
+function addDetailProject (req, res) {
+    const { title, content, endDate, startDate, id } = req.body;
+    data [id] = {
+        title, content, endDate, startDate, image
+    }
+    res.redirect("myProject")
+}
+
+async function detailProjectView (req, res) {
+
+    const { id } = req.params;
+    const query = "SELECT * FROM blogs WHERE id=" + id
+    const data = await sequalize.query(query, {type: QueryTypes.SELECT});
+
+    res.render("detailProject" ,{data:data[0]}) 
+}
+
+
+// ----- DELETE ----------
 
 function deleteProject (req, res) {
     const { id } = req.params;
@@ -92,20 +97,20 @@ function deleteProject (req, res) {
     console.log("data yg di delete", id);
 
    
-
-
     res.redirect("/myProject")
 }
 
-function editProject (req, res) {
-    const { title, content, endDate, startDate, id } = req.body;
+// ----------- EDIT PROJECT -----------
 
+function editProject (req, res) {
+
+    const { title, content, endDate, startDate, id } = req.body;
     data [id] = {
         title, content, endDate, startDate
     }
-
     res.redirect("myProject")
 }
+
 
 function editProjectView (req, res) {
 
@@ -118,45 +123,29 @@ function editProjectView (req, res) {
 
 
 
-function detailProjectView (req, res) {
-
-    const { id } = req.params;
-    const selectedDetailData = data[id];
-    selectedDetailData.id = id
-
-    console.log(selectedDetailData);
-
-    res.render("detailProject", {data : selectedDetailData});
-    
-}
-
 function contactMe (req, res) {
     res.render("contactMe")  
 }
 
 async function myProject (req, res) {
     // res.render("myProject", {data : data});  
+
     const query = "SELECT * FROM blogs"
     const data = await sequalize.query(query, {type: QueryTypes.SELECT});
 
-    
     res.render("myProject" ,{data}) 
-
-    
 
 }
 
-async function myListProject (req, res) {
+function myListProject (req, res) {
     
     const {image ,title, content, startDate, endDate} = req.body
     data.push({
         image ,title, content, startDate, endDate
     });
     
-
     deleteProject()
-    
-    
+
 }
 
 
