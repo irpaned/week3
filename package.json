@@ -9,7 +9,10 @@
   "author": "muhammadirfan",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
+    "express-flash": "github:RGBboy/express-flash",
+    "express-session": "^1.18.0",
     "hbs": "^4.2.0",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",

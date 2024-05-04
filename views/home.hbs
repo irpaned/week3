@@ -36,20 +36,44 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="home">Home</a>
               </li>
+              {{!-- DATA YANG DI HILANGKAN --}}
+              {{#if isLogin}} 
               <li class="nav-item">
                 <a class="nav-link" href="addProject">Add Project</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="myProject">My Project</a>
               </li>
+              {{/if}}
             </ul>
-              <button class="btn btn-dark" type="submit"><a href="contactMe" style="color: white; text-decoration: none;">Contact</a></button>
+            {{#if isLogin}}<i class="bi bi-person navbar-nav" style="font-size: 35px;" >{{/if}}</i><h3 class="navbar-nav p-2 bd-highlight me-5" style="font-size: 22px;">{{user.name}}</h3>
+            {{!-- <ul class="navbar-nav p-2 bd-highlight">
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Register</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Log In</a>
+                </li> 
+            </ul> --}}
+            <button class="btn btn-dark me-1" type="submit"><a href="contactMe" style="color: white; text-decoration: none;">Contact</a></button>
+            {{#if isLogin}}<form action="/logout" method="POST">
+              <button class="btn btn-dark" type="submit">Logout</button>
+            </form>{{/if}}
           </div>
         </div>
       </nav>
 
       <!-- CARD -->
 
+      {{#if messages.succes}}
+      <h1>
+        <div class="alert alert-succes w-25 m-auto" role="alert" >
+          <div class="container text-center p-2 rounded" style="background-color: green; font-size: 20px; color: white">
+            {{messages.succes}}
+          </div>
+        </div>
+      </h1>
+      {{/if}}
 
       <div class="d-flex m-auto mt-5 p-4 shadow p-3 mb-5 bg-body rounded" style="width: 1000px;">
 
