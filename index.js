@@ -182,9 +182,9 @@ function addProject (req, res) {
 }
 
 async function addTheProject (req, res) {
-    const { title, content } = req.body;
+    const { title, content, image, startDate, endDate, author} = req.body;
 
-    const query = `INSERT INTO blogs(title,content,image,"createdAt","updatedAt") VALUES('${title}', '${content}','https://images.pexels.com/photos/1337373/pexels-photo-1337373.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', now(), now())`
+    const query = `INSERT INTO blogs(title,content,image,"createdAt","updatedAt","startDate","endDate",author) VALUES('${title}', '${content}','https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',now(),now(),'${startDate}', '${endDate}', '${author}')`
     const data = await sequelize.query(query, {type : QueryTypes.INSERT})
     
     // console.log("data yg di tambah", data);
@@ -199,9 +199,9 @@ async function addTheProject (req, res) {
 
 function addDetailProject (req, res) {
 
-    const { title, content, endDate, startDate, id } = req.body;
+    const { title, content, endDate, startDate, author, id } = req.body;
     data [id] = {
-        title, content, endDate, startDate, image
+        title, content, endDate, startDate, author, image
     }
     res.redirect("myProject")   
 }
@@ -213,7 +213,7 @@ async function detailProjectView (req, res) {
     const query = `SELECT * FROM blogs WHERE id=${id}` // Cara kedua
     const data = await sequelize.query(query, {type: QueryTypes.SELECT});
     console.log("data", data[0]);
-    // res.render("detailProject" ,{data:data[0]}) 
+    res.render("detailProject" ,{data:data[0]}) 
 }
 
 
@@ -226,17 +226,17 @@ async function deleteProject (req, res) {
     console.log("data yg di delete", data);
 
     res.redirect("/myProject")
-}
+}   
 
 // ----------- EDIT PROJECT -----------
 
 async function editProject (req, res) {
 
-    const { title, content, endDate, startDate, id } = req.body;
+    const { title, content, startDate, endDate, author, id } = req.body;
     // data [id] = {
-    //     title, content, endDate, startDate
+    //     title, content, endDate, startDate, author, id
     // }
-    const query = `UPDATE blogs SET title='${title}', content='${content}' WHERE id=${id}`
+    const query = `UPDATE blogs SET title='${title}', content='${content}', "startDate"='${startDate}', "endDate"='${endDate}', author='${author}' WHERE id=${id}`
     const data = await sequelize.query(query, {type : QueryTypes.UPDATE})
 
     // console.log(data);
@@ -278,9 +278,9 @@ async function myProject (req, res) {
 
 function myListProject (req, res) {
     
-    const {image ,title, content, startDate, endDate} = req.body
+    const {image ,title, content, startDate, endDate, author} = req.body
     data.push({
-        image ,title, content, startDate, endDate
+        image ,title, content, startDate, endDate, author
     });
     
     deleteProject()

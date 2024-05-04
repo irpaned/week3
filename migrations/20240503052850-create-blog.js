@@ -25,6 +25,15 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      startDate: {
+        type: Sequelize.STRING
+      },
+      endDate: {
+        type: Sequelize.STRING
+      },
+      author: {
+        type: Sequelize.STRING
       }
     });
   },
