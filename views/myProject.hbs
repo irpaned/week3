@@ -69,7 +69,7 @@
         <div class="card" style="width: 23rem; height: 575px;">
           
           <a href="/detailProject/{{id}}" style="text-decoration: none; color:black" class="card-img-top">
-            <img src="{{image}}" class="card-img-top" alt="..." style="border: 2px solid black;" >
+            <img src="/uploads/{{image}}" class="card-img-top" alt="..." style="border: 2px solid black;" >
           </a>
 
             <div class="card-body mt-3">
@@ -79,11 +79,7 @@
                 </a>
                 
                 <a href="/detailProject/{{id}}" style="text-decoration: none; color:black" class="card-text">
-                  <p class="card-text" >{{startDate}} - {{endDate}}</p>
-                </a>
-
-                <a href="/detailProject/{{id}}" style="text-decoration: none; color:black" class="card-text">
-                  <p class="card-text" >{{author}}</p>
+                  <p class="card-text" >{{createdAt}} | {{name}}</p>
                 </a>
 
                 <div class="" style="height: 100px">

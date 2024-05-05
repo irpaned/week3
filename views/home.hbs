@@ -46,15 +46,10 @@
               </li>
               {{/if}}
             </ul>
-            {{#if isLogin}}<i class="bi bi-person navbar-nav" style="font-size: 35px;" >{{/if}}</i><h3 class="navbar-nav p-2 bd-highlight me-5" style="font-size: 22px;">{{user.name}}</h3>
-            {{!-- <ul class="navbar-nav p-2 bd-highlight">
-                <li class="nav-item">
-                    <a class="nav-link" href="register">Register</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="login">Log In</a>
-                </li> 
-            </ul> --}}
+            {{#if isLogin}}
+            <i class="bi bi-person navbar-nav" style="font-size: 35px;" ></i>
+            
+            {{/if}}<h3 class="navbar-nav p-2 bd-highlight me-5" style="font-size: 22px;">{{user.name}}</h3>
             <button class="btn btn-dark me-1" type="submit"><a href="contactMe" style="color: white; text-decoration: none;">Contact</a></button>
             {{#if isLogin}}<form action="/logout" method="POST">
               <button class="btn btn-dark" type="submit">Logout</button>

@@ -3,29 +3,14 @@
 // function addProject (event) {
 //     event.preventDefault();
 
-// //     let projectName = document.getElementById("projectName").value;
-// //     let image = document.getElementById("image").files[0];
-// //     let imageURL = URL.createObjectURL(image)
-//     let startDate = document.getElementById("startDate").value;
-//     let endDate = document.getElementById("endDate").value;
-// //     let description = document.getElementById("description").value;
+// // //     let projectName = document.getElementById("projectName").value;
+// // //     let image = document.getElementById("image").files[0];
+// // //     let imageURL = URL.createObjectURL(image)
+//     // let startDate = document.getElementById("startDate").value;
+//     // let endDate = document.getElementById("endDate").value;
+// // //     let description = document.getElementById("description").value;
 
 
-// //     if (projectName == "") {
-// //         return alert ("Please enter your project name!")
-// //     } else if (startDate == "") {
-// //         return alert ("Please enter your Start Date!")
-// //     } else if (endDate == "") {
-// //         return alert ("Please enter your End Date!")
-// //     } else if (description == "") {
-// //         return alert ("Please enter your Description!")
-// //     } else if (imageURL == "") {
-// //         return alert ("Please upload your image!")
-// //     } 
-
-// //     if (endDate < startDate) {
-// //         return alert ("End date cannot be less than start date!")
-// //     }
 
 
 //     let startDatePart = startDate.split("/")
@@ -53,27 +38,27 @@
 //         duration = `${differenceInDays} days`
 //     }
 
-
-
-    
-//     dataProject.push(
-//         {
-//             // projectName: projectName,
-//             // startDate: startDate,
-//             // endDate: endDate,
-//             // description: description,
-//             // image: imageURL,
-//             duration: duration
-
-//         }
-//     )
+//     module.export = { getDurationTime }
 
     
-// //     console.log(dataProject)
+//     // dataProject.push(
+//     //     {
+//     //         // projectName: projectName,
+//     //         // startDate: startDate,
+//     //         // endDate: endDate,
+//     //         // description: description,
+//     //         // image: imageURL,
+//     //         duration: duration
 
-// //     newData()
+//     //     }
+//     // )
 
-// // }
+    
+// // //     console.log(dataProject)
+
+// // //     newData()
+
+// }
 
 // // function newData() {
 // //     document.getElementById("containerListProject").innerHTML = ""
@@ -108,4 +93,4 @@
 // //             </div>
 // //         </div>`
 // //     }
-// }
+// // }
